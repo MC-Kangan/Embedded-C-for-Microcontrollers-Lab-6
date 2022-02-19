@@ -10,14 +10,16 @@
 #include "rc_servo.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-
+      
 void main(void){
     Timer0_init();
     Interrupts_init();
+    TRISDbits.TRISD5 = 0;   //set initial output state
+    LATDbits.LATD5 = 0;
 	//don't forget TRIS for your output!
-
+    //angle2PWM(90);
     while(1){
 		//write your code to call angle2PWM() to set the servo angle
-        angle2PWM(90);
+        angle2PWM(50);
     }
 }
