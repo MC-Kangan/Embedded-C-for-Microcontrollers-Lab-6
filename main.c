@@ -18,6 +18,6 @@ void main(void){
 
     while(1){
 		//write your code to call angle2PWM() to set the servo angle
-
+        angle2PWM(90);
     }
 }
