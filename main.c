@@ -17,9 +17,16 @@ void main(void){
     TRISDbits.TRISD5 = 0;   //set initial output state
     LATDbits.LATD5 = 0;
 	//don't forget TRIS for your output!
-    //angle2PWM(90);
+    int angle = 0;
     while(1){
 		//write your code to call angle2PWM() to set the servo angle
-        angle2PWM(50);
+        while (angle <= 90) {
+            angle2PWM(angle++);
+            __delay_ms(50); //delay to make it move at approximately 20°per second
+        }
+        while (angle >= -90) {
+            angle2PWM(angle--);
+            __delay_ms(50);
+        }
     }
 }
