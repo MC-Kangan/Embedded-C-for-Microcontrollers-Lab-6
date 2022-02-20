@@ -4,6 +4,8 @@
 #include <xc.h>
 
 #define _XTAL_FREQ 64000000
+#define TURNING_POWER_L 70 // This number needs to be adjusted according to different floor condition
+#define TURNING_POWER_R 40 // This number needs to be adjusted according to different floor condition
 
 struct DC_motor { //definition of DC_motor structure
     char power;         //motor power, out of 100
@@ -21,5 +23,6 @@ void stop(struct DC_motor *mL, struct DC_motor *mR);
 void turnLeft(struct DC_motor *mL, struct DC_motor *mR);
 void turnRight(struct DC_motor *mL, struct DC_motor *mR);
 void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR);
+void turn180(struct DC_motor *mL, struct DC_motor *mR);
 
 #endif
