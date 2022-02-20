@@ -6,12 +6,12 @@ void initDCmotorsPWM(int PWMperiod){
 	//initialise your TRIS and LAT registers for PWM
 
     // timer 2 config
-    T2CONbits.CKPS=???; // 1:??? prescaler
+    //T2CONbits.CKPS=???; // 1:??? prescaler
     T2HLTbits.MODE=0b00000; // Free Running Mode, software gate only
     T2CLKCONbits.CS=0b0001; // Fosc/4
 
     // Tpwm*(Fosc/4)/prescaler - 1 = PTPER
-    T2PR=??; //Period reg 10kHz base period
+   // T2PR=??; //Period reg 10kHz base period
     T2CONbits.ON=1;
     
     RE2PPS=0x0A; //PWM6 on RE2
