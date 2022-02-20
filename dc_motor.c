@@ -67,7 +67,7 @@ void stop(struct DC_motor *mL, struct DC_motor *mR)
         mR->power -= 10;
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(50);
+        __delay_ms(10);
     }
 }
 
@@ -103,19 +103,19 @@ void fullSpeedAhead(struct DC_motor *mL, struct DC_motor *mR)
     mR->direction=1;
     mL->power = 0; // set the power for both motor to be 0 to start with, otherwise, due to previous movement, they might have different speed.
     mR->power = 0;
-    while (mL->power<90 && mR->power<90){
+    while (mL->power<70 && mR->power<70){
         mL->power += 10;
         mR->power += 10;
         setMotorPWM(mL);
         setMotorPWM(mR);
-        __delay_ms(50);
+        __delay_ms(10);
     }
 }
 
 //function to make the robot turn right 180 degree
 void turn180(struct DC_motor *mL, struct DC_motor *mR)
 {
-    while (mR->power <TURNING_POWER_R){
+    while (mR->power <TURNING_POWER_R + 5){
         mR->power += 1;
         mL->power = 0;
         //setMotorPWM(mL);
