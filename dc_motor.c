@@ -78,22 +78,19 @@ void turnLeft(struct DC_motor *mL, struct DC_motor *mR)
         mL->power += 1;
         mR->power = 0;
         setMotorPWM(mL);
-        setMotorPWM(mR);
+        //setMotorPWM(mR);
         __delay_ms(10);
     }
-   
-
 }
 
 //function to make the robot turn right 
 void turnRight(struct DC_motor *mL, struct DC_motor *mR)
 {
-     
       while (mR->power <TURNING_POWER_R){
         mR->power += 1;
         mL->power = 0;
-        setMotorPWM(mL);
         setMotorPWM(mR);
+        //setMotorPWM(mL);
         __delay_ms(10);
     }
  
@@ -121,7 +118,7 @@ void turn180(struct DC_motor *mL, struct DC_motor *mR)
     while (mR->power <TURNING_POWER_R){
         mR->power += 1;
         mL->power = 0;
-        setMotorPWM(mL);
+        //setMotorPWM(mL);
         setMotorPWM(mR);
         __delay_ms(10);
     }

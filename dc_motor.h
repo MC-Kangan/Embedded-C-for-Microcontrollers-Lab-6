@@ -4,7 +4,7 @@
 #include <xc.h>
 
 #define _XTAL_FREQ 64000000
-#define TURNING_POWER_L 70 // This number needs to be adjusted according to different floor condition
+#define TURNING_POWER_L 40 // This number needs to be adjusted according to different floor condition
 #define TURNING_POWER_R 40 // This number needs to be adjusted according to different floor condition
 
 struct DC_motor { //definition of DC_motor structure
