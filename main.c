@@ -72,7 +72,7 @@ void main(void){
             fullSpeedAhead(&motorL, &motorR);
             __delay_ms(2000);
             stop(&motorL, &motorR);
-            __delay_ms(200);
+            __delay_ms(1000); //Stop for one second, 70ms needed to reduce power to 0, then add 1s
             turn180(&motorL, &motorR);
             __delay_ms(2000);
             stop(&motorL, &motorR);
@@ -92,7 +92,7 @@ void main(void){
             fullSpeedAhead(&motorL, &motorR);
             __delay_ms(2000);
             stop(&motorL, &motorR);
-            __delay_ms(500);
+            __delay_ms(1000); //Stop for one second, 70ms needed to reduce power to 0, then add 1s
             turn180(&motorL, &motorR);
             __delay_ms(2000);
         }
