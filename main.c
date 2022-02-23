@@ -49,7 +49,7 @@ void main(void){
         if (TEST == 1){
             
             fullSpeedAhead(&motorL, &motorR);
-            __delay_ms(1000);
+            __delay_ms(1000);                   // set the delay to control the distance the car will move
             stop(&motorL, &motorR);
             __delay_ms(500);
             turn180(&motorL, &motorR);
