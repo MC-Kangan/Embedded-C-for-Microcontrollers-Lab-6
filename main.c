@@ -14,6 +14,9 @@
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz 
 #define TURNING_POWER_L 40 // This number needs to be adjusted according to different floor condition
 #define TURNING_POWER_R 40 // This number needs to be adjusted according to different floor condition
+#define TURNING_STOPTIME_L 600 
+#define TURNING_STOPTIME_R 700 
+#define TURNING_STOPTIME_180 1700 
 #define TEST 0
 //#define TEST 0 
       
@@ -48,11 +51,11 @@ void main(void){
             fullSpeedAhead(&motorL, &motorR);
             __delay_ms(1000);
             stop(&motorL, &motorR);
-            __delay_ms(200);
+            __delay_ms(500);
             turn180(&motorL, &motorR);
             __delay_ms(2000);
             stop(&motorL, &motorR);
-            __delay_ms(200);
+            __delay_ms(500);
             
         }
     
@@ -62,11 +65,11 @@ void main(void){
                 fullSpeedAhead(&motorL, &motorR);
                 __delay_ms(2000);
                 stop(&motorL, &motorR);
-                __delay_ms(200);
+                __delay_ms(500);
                 turnLeft(&motorL, &motorR);
-                __delay_ms(1000); //650
+                __delay_ms(TURNING_STOPTIME_L); 
                 stop(&motorL, &motorR);
-                __delay_ms(200);
+                __delay_ms(500);
             }
 
             fullSpeedAhead(&motorL, &motorR);
@@ -74,19 +77,20 @@ void main(void){
             stop(&motorL, &motorR);
             __delay_ms(1000); //Stop for one second, 70ms needed to reduce power to 0, then add 1s
             turn180(&motorL, &motorR);
-            __delay_ms(2000);
+            __delay_ms(TURNING_STOPTIME_180);
             stop(&motorL, &motorR);
-            __delay_ms(200);
+            __delay_ms(500);
+            
 
             for (i = 0; i < 3; i++){ 
                 fullSpeedAhead(&motorL, &motorR);
                 __delay_ms(2000);
                 stop(&motorL, &motorR);
-                __delay_ms(200);
+                __delay_ms(500);
                 turnRight(&motorL, &motorR);
-                __delay_ms(1000);
+                __delay_ms(TURNING_STOPTIME_R);
                 stop(&motorL, &motorR);
-                __delay_ms(200);
+                __delay_ms(500);
             }
 
             fullSpeedAhead(&motorL, &motorR);
@@ -94,7 +98,9 @@ void main(void){
             stop(&motorL, &motorR);
             __delay_ms(1000); //Stop for one second, 70ms needed to reduce power to 0, then add 1s
             turn180(&motorL, &motorR);
-            __delay_ms(2000);
+            __delay_ms(TURNING_STOPTIME_180);
+            stop(&motorL, &motorR);
+            __delay_ms(500);
         }
         
     }

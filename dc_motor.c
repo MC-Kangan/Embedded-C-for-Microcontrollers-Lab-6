@@ -11,8 +11,8 @@ void initDCmotorsPWM(int PWMperiod){
     TRISEbits.TRISE4=0; //output on RE4 
     LATEbits.LATE2=0; // output on RE2 set low (power)
     LATCbits.LATC7=0; // output on RC7 set low (power)
-    LATGbits.LATG6=1; // output on RG6 set high (direction: forward) right motor
-    LATEbits.LATE4=1; // output on RE4 set high (direction: forward) left  motor
+    LATGbits.LATG6=0; // output on RG6 set high (direction: forward) right motor
+    LATEbits.LATE4=0; // output on RE4 set high (direction: forward) left  motor
 
     // timer 2 config
     T2CONbits.CKPS=0b011; // 1:8 prescaler, according to calculation
